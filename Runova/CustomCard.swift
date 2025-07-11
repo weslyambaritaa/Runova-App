@@ -11,7 +11,6 @@ struct CustomCard: View {
             RoundedRectangle(cornerRadius: 10)
                 .fill(backgroundColor)
                 .frame(width: 170, height: 80)
-//                .shadow(color: Color.gray.opacity(0.7), radius: 5, x: 0, y: 0)
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(Color.abuBG, lineWidth: 3)

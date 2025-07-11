@@ -186,12 +186,9 @@ struct ContentView: View {
                 }
             }
             .onAppear {
-                // new app state
                 let newAppState = AppState()
                 modelContext.insert(newAppState)
                 
-//                let newHistoryComponent = HistoryComponent(session: 1, week: 2, time: "Wesly")
-//                modelContext.insert(newHistoryComponent)
             }
         } else {
             CustomTabView(userData: userDataArray.first!, appState: appStateArray.first!)

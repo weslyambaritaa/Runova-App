@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct InputDataView: View {
-    // State variables untuk menyimpan input dari user
     @Binding var userData: UserData
 
     var body: some View {
@@ -78,7 +77,7 @@ struct InputDataView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .foregroundColor(.white)
                     TextField("Height (cm)", value: $userData.height, formatter: NumberFormatter())
-//                        .keyboardType(.numberPad)
+
                         .padding()
                         .background(Color.abuBG)
                         .cornerRadius(10)
@@ -90,7 +89,7 @@ struct InputDataView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .foregroundColor(.white)
                     TextField("Starting Weight (kg)", value: $userData.startingWeight, formatter: NumberFormatter())
-//                        .keyboardType(.numberPad)
+
                         .padding()
                         .background(Color.abuBG)
                         .cornerRadius(10)
@@ -102,7 +101,7 @@ struct InputDataView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .foregroundColor(.white)
                     TextField("Target Weight (kg)", value: $userData.targetWeight, formatter: NumberFormatter())
-//                        .keyboardType(.numberPad)
+
                         .padding()
                         .background(Color.abuBG)
                         .cornerRadius(10)

@@ -1,9 +1,3 @@
-//
-//  TextAreaComponent.swift
-//  Runova
-//
-//  Created by Foundation-026 on 26/06/25.
-//
 
 import SwiftUI
 

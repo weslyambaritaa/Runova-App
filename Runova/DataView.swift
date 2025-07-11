@@ -7,7 +7,6 @@ struct DataView: View {
     @State var targetWeight: String = ""
     var userData: UserData
     var appState: AppState
-    //var historyComponent: HistoryComponent
     
     @State private var showAlert = false
     @State private var navigate = false
@@ -118,13 +117,7 @@ struct DataView: View {
                             
                             
                             Spacer()
-                            //                    CustomCard2(
-                            //                        content: "New Program",
-                            //                        backgroundColor: .blue,
-                            //                        textColor: .white
-                            //                    )
                             
-                            // 🆕 Tombol New Program
                             Button(action: {
                                 showAlert = true
                             }) {
@@ -140,7 +133,7 @@ struct DataView: View {
                                     .bold()
                             }
                             
-                            // 🆕 NavigationLink dengan state
+                            
                             NavigationLink(
                                 destination: ContentView(),
                                 isActive: $navigate

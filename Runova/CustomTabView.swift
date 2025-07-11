@@ -3,8 +3,8 @@ import SwiftUI
 struct CustomTabView: View {
     var userData: UserData
     var appState: AppState
-    //var historyComponent: HistoryComponent
-    @State private var selectedTab = 0 // State untuk melacak tab yang aktif
+    
+    @State private var selectedTab = 0
     
     var body: some View {
         TabView(selection: $selectedTab) {
@@ -22,9 +22,8 @@ struct CustomTabView: View {
                 }
                 .tag(1)
         }
-        .tint(Color.cyan) // Warna untuk tab yang aktif
+        .tint(Color.cyan)
         .onAppear() {
-            // Atur warna tab yang tidak aktif
             UITabBar.appearance().unselectedItemTintColor = UIColor(Color.abuBG)
         }
     }

@@ -2,7 +2,7 @@ import SwiftUI
 import SwiftData
 
 struct HistoryView: View {
-    var historyList: [HistoryComponent] // ✅ Pakai data parent
+    var historyList: [HistoryComponent]
     
     var body: some View {
         ZStack {
@@ -11,7 +11,7 @@ struct HistoryView: View {
             
             NavigationView {
                 VStack(spacing: 0) {
-                    // 🔽 Panah kecil di atas
+                   
                     Capsule()
                         .fill(Color.gray.opacity(0.5))
                         .frame(width: 40, height: 5)
@@ -19,12 +19,12 @@ struct HistoryView: View {
                     
                     ScrollView {
                         VStack(spacing: 15) {
-                            // ✅ Sort: week desc → session desc
+                            
                             ForEach(historyList.sorted(by: {
                                 if $0.week != $1.week {
-                                    return $0.week > $1.week // Week terbaru dulu
+                                    return $0.week > $1.week
                                 } else {
-                                    return $0.session > $1.session // Session terbaru dulu
+                                    return $0.session > $1.session 
                                 }
                             })) { item in
                                 

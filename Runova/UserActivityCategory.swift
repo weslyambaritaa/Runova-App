@@ -1,17 +1,9 @@
-//
-//  UserActivityCategory.swift
-//  Runova
-//
-//  Created by Foundation-026 on 25/06/25.
-//
 
 import SwiftUI
 import SwiftData
 
 struct UserActivityCategory: View {
     @Binding var userData: UserData
-//    @Binding var historyComponent: HistoryComponent
-    //@Binding var appState: AppState
     @Environment(\.modelContext) var modelContext
     
     @Query var appStateArray: [AppState] = []

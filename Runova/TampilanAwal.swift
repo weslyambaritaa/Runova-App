@@ -2,14 +2,14 @@ import SwiftUI
 
 struct TampilanAwal: View {
     var body: some View {
-        NavigationStack { // Bungkus dengan NavigationView
+        NavigationStack {
             ZStack {
-                Color.black.ignoresSafeArea() // Latar belakang hitam
+                Color.black.ignoresSafeArea()
                 
                 VStack(spacing: 25) {
                     Spacer()
                     
-                    // Logo di atas
+                 
                     Image("logo3")
                         .resizable()
                         .scaledToFit()
@@ -20,11 +20,9 @@ struct TampilanAwal: View {
                         .font(.title)
                         .bold()
                         .foregroundColor(.white)
-                    
-                    // LIST FITUR
+                
                     VStack(alignment: .leading, spacing: 20) {
                         
-                        // 1. Activity
                         HStack(alignment: .top, spacing: 15) {
                             ZStack {
                                 Circle()
@@ -44,7 +42,6 @@ struct TampilanAwal: View {
                             }
                         }
                         
-                        // 2. Calories
                         HStack(alignment: .top, spacing: 15) {
                             ZStack {
                                 Circle()
@@ -64,7 +61,6 @@ struct TampilanAwal: View {
                             }
                         }
                         
-                        // 3. Programs
                         HStack(alignment: .top, spacing: 15) {
                             ZStack {
                                 Circle()
@@ -88,7 +84,6 @@ struct TampilanAwal: View {
                     .padding(.horizontal, 20)
                     Spacer()
                     
-                    // Tombol Continue
                     NavigationLink(destination: ContentView()) {
                         Text("Continue")
                             .frame(maxWidth: .infinity)
@@ -100,12 +95,12 @@ struct TampilanAwal: View {
                             .padding(.horizontal)
                     }
                 }
-                .navigationBarHidden(true) // Sembunyikan navigation bar
+                .navigationBarHidden(true)
             }
         }
     }
 }
 
 #Preview {
-    TampilanAwal() // Tidak perlu parameter destination
+    TampilanAwal() 
 }

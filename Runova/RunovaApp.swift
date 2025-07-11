@@ -1,9 +1,3 @@
-//
-//  RunovaApp.swift
-//  Runova
-//
-//  Created by Foundation-026 on 18/06/25.
-//
 
 import SwiftUI
 import SwiftData
@@ -15,9 +9,6 @@ struct RunovaApp: App {
         let modelContainer = try! ModelContainer(for: UserData.self, HistoryComponent.self, AppState.self)
         return modelContainer
     }
-    
-    //@AppStorage("userDataDidSet") var userDataDidSet: Bool = true
-    
     
     var body: some Scene {
         WindowGroup {

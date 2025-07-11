@@ -55,7 +55,6 @@ struct HomeView: View {
                 Spacer()
                 
                 VStack {
-                    // Calendar view
                     HStack {
                         ForEach(0..<daysOfWeek.count, id: \.self) { index in
                             VStack {
@@ -79,7 +78,6 @@ struct HomeView: View {
                     }
                     .padding(.horizontal)
                     
-                    // Session & calorie information
                     HStack(spacing: 15) {
                         Spacer()
                         VStack(spacing: 15) {
@@ -136,9 +134,9 @@ struct HomeView: View {
                                 }
                                 .padding(.horizontal, 8)
                             }
-                            .frame(maxWidth: .infinity, alignment: .center) // <<< memastikan lurus
+                            .frame(maxWidth: .infinity, alignment: .center)
                         }
-                        .frame(maxWidth: .infinity, alignment: .center) // <<< menjaga semua vertikal rapi
+                        .frame(maxWidth: .infinity, alignment: .center)
                         
                         
                         ZStack {
@@ -173,7 +171,6 @@ struct HomeView: View {
                     }
                 }
                 
-                // DONE Button
                 ZStack {
                     HStack {
                         ZStack {
@@ -253,7 +250,6 @@ struct HomeView: View {
                 
                 HStack{
                     Spacer()
-                    // History Button
                     Button {
                         showSheet = true
                     } label: {
@@ -276,7 +272,7 @@ struct HomeView: View {
             .onAppear {
                 
                 if appState.dinamisWeight == 0 {
-                    appState.dinamisWeight = userData.startingWeight // ✅ Set berat awal
+                    appState.dinamisWeight = userData.startingWeight
                 }
                 
                 if let savedState = appStates.first {
@@ -292,17 +288,14 @@ struct HomeView: View {
                     appState.calorieBurned = savedState.calorieBurned
                     appState.checklist = savedState.checklist
                     
-                    // Load history
                     let fetchDescriptor = FetchDescriptor<HistoryComponent>()
                     if let savedHistory = try? modelContext.fetch(fetchDescriptor) {
                         historyList = savedHistory
                     }
                 } else {
-                    // Create new AppState if none exists
                     let newState = AppState()
                     modelContext.insert(newState)
                     try? modelContext.save()
-                    // Update properties to local state
                     appState.sessionCompleted = newState.sessionCompleted
                     appState.progressValue = newState.progressValue
                     appState.week = newState.week
@@ -349,7 +342,7 @@ struct HomeView: View {
         )
         
         if appState.sessionCompleted < totalSesi {
-            // 📝 Tambahkan ke history dulu
+  
             let currentHistory = HistoryComponent(
                 session: appState.sesi,
                 week: appState.week,
@@ -358,7 +351,7 @@ struct HomeView: View {
             historyList.append(currentHistory)
             modelContext.insert(currentHistory)
             
-            // ✅ Hitung kalori per sesi & pengurangan berat badan
+           
             let kaloriSesi = caloriePerSesi(
                 startingWeight: Double(appState.dinamisWeight),
                 MET: userData.MET,
@@ -366,12 +359,9 @@ struct HomeView: View {
             )
             let penguranganBB = Double(kaloriSesi) / 7700.0 // ✅ penurunan berat badan (kg)
             
-            // ✅ Update berat badan dinamis
+          
             appState.dinamisWeight -= penguranganBB // 🔥 berat turun
-            
-            // ✅ Update kalori rekomendasi (otomatis saat pakai dinamisWeight di kalkulasiCalorie())
-            
-            // ✅ Update ke sesi/week berikutnya
+           
             appState.sessionCompleted += 1
             appState.sesi += 1
             appState.progressValue = Float(appState.sessionCompleted) / Float(totalSesi)
@@ -386,9 +376,7 @@ struct HomeView: View {
             
             do {
                 try modelContext.save()
-                print("✅ AppState & berat badan berhasil disimpan")
             } catch {
-                print("❌ Gagal menyimpan AppState: \(error)")
             }
         }
     }
